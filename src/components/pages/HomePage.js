@@ -31,12 +31,12 @@ export default () => (
         <h3>Applications</h3> 
         <div className="application-box">
             {applications.map((application, index) => (
-                <div key={application.id}>
-                    <Application application={application} />
-                    {(index < applications.length - 1) && (
-                        <hr className="hr marg-b-sm" />
-                    )}
-                </div>
+                <Application 
+                    application={application}
+                    applications={applications} 
+                    index={index}
+                    key={application.id}
+                />
             ))}
         </div>
     </div>

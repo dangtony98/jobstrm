@@ -2,9 +2,10 @@
     width: 100%;
     padding: 1.5rem 2rem;
     border-radius: 0.5rem;
-    border: 1px solid $color-grey-dark;
+    border: 1px solid transparent;
     font-size: 1.5rem;
     font-weight: 300;
+    box-shadow: $box-shadow;
     outline: none;
     transition: border 0.2s;
 

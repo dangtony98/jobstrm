@@ -2,5 +2,29 @@
     &-col-4 {
         width: 42.29%;
     }
+
+    &-flex {
+        display: flex;
+
+        &--around {
+            justify-content: space-around;
+        }
+    
+        &--column {
+            flex-direction: column;
+        }
+    
+        &--top {
+            align-items: start;
+        }
+    
+        &--bottom {
+            align-items: flex-en
+        }
+        
+        &--center {
+            align-items: center;
+        }
+    }
 }
 
