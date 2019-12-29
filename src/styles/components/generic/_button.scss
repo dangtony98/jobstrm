@@ -1,0 +1,30 @@
+.button {
+    padding: 1.5rem 2rem;
+    border-radius: 0.5rem;
+    font-size: 1.5rem;
+    font-weight: 400;
+    outline: none;
+    transition: all 0.2s;
+    cursor: pointer;
+
+    &--primary {
+        color: $color-white;
+        background-color: $color-green;
+        border: 1px solid $color-green;
+
+        &:hover {    
+            background-color: $color-green-dark;
+            border: 1px solid $color-green-dark;
+        }
+    }
+
+    &--secondary {
+        padding: 1.5rem 0;
+        color: $color-green;
+        border: 1px solid transparent;
+
+        &:hover {    
+            color: $color-green-dark;
+        }
+    }
+}

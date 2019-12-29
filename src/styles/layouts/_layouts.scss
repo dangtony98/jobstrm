@@ -1,6 +1,33 @@
 .layout {
-    &-col-4 {
-        width: 42.29%;
+    &-position {
+        &--center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+
+    &-col {
+        &--2 {
+            max-width: 23.23rem;
+        } 
+
+        &--3 {
+            max-width: 34.84rem;
+        }
+        
+        &--4 {
+            width: 46.45rem;
+        }
+
+        &--5 {
+            max-width: 58.06rem;
+        }
+
+        &--6 {
+            max-width: 70.37rem;
+        }
     }
 
     &-flex {
@@ -35,4 +62,3 @@
         }
     }
 }
-

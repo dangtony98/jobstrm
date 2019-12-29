@@ -28,13 +28,11 @@ export default class Application extends Component {
             notes 
         } = application;
         return (
-            <div className="application layout-flex">
-                <div className="application__left marg-r-sm">
-                    <div className="application-image">
-    
-                    </div>
+            <div className="layout-flex">
+                <div className="application-image marg-r-sm">
+
                 </div>
-                <div className="application__right layout-flex--grow">
+                <div className="layout-flex--grow">
                     <div className="layout-flex layout-flex--between">
                         <div>
                             <h4>{position}</h4>
@@ -63,7 +61,7 @@ export default class Application extends Component {
                         </div>
                     )}
                     {(index < applications.length - 1) && (
-                        <hr className="hr" />
+                        <hr className="marg-b-sm" />
                     )}
                 </div>
             </div>

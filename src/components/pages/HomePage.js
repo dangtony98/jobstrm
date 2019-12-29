@@ -1,5 +1,5 @@
 import React from 'react';
-import Filter from '../tools/Filter';
+import Input from '../generic/Input';
 import Application from '../application/Application';
 
 const applications = [{
@@ -26,18 +26,24 @@ const applications = [{
 }];
 
 export default () => (
-    <div className="layout-col-4 marg-c marg-t-sm">
-        <Filter />
-        <h3>Applications</h3> 
-        <div className="application-box">
-            {applications.map((application, index) => (
-                <Application 
-                    application={application}
-                    applications={applications} 
-                    index={index}
-                    key={application.id}
-                />
-            ))}
+    <div className="pages-home">
+        <div className="layout-col--6 marg-c marg-t-sm">
+            <Input
+                type="text"
+                primary={true} 
+                placeholder="Search"
+            />
+            <h3>Applications</h3> 
+            <div className="element-box">
+                {applications.map((application, index) => (
+                    <Application 
+                        application={application}
+                        applications={applications} 
+                        index={index}
+                        key={application.id}
+                    />
+                ))}
+            </div>
         </div>
     </div>
 );

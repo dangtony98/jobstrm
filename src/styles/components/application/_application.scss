@@ -1,23 +1,6 @@
-.application {
-    &__left {
-        padding-top: 2rem;
-        padding-left: 2rem;
-    }
-
-    &__right {
-        padding-top: 2rem;
-        padding-right: 2rem;
-    }
-}
-
 .application-image {
     height: 5rem;
     min-width: 5rem;
     border-radius: 1rem;
-    background-color: $color-green;
-}
-
-.application-box {
-    border-radius: 1rem;
-    box-shadow: $box-shadow;
+    border: 1px solid $color-green;
 }
