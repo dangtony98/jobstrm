@@ -6,6 +6,7 @@ import './styles/_styles.scss';
 import SignInPage from './components/pages/SignInPage';
 import SignUpPage from './components/pages/SignUpPage';
 import HomePage from './components/pages/HomePage';
+import NewPage from './components/pages/NewPage';
 
 const Application = () => (
     <Router>
@@ -13,6 +14,7 @@ const Application = () => (
             <Route path="/" component={HomePage} exact />
             <Route path="/signin" component={SignInPage} />
             <Route path="/signup" component={SignUpPage} />
+            <Route path="/new" component={NewPage} />
         </Switch>
     </Router>
 );
