@@ -15,20 +15,16 @@ export class LoginPage extends Component {
     }
 
     onButtonPressed(index) {
-        if (index == 2) {
-            this.props.history.push("/");
-        } else {
-            this.setState({
-                index
-            });
-        }
+        this.setState({
+            index
+        });
     }
 
     render() {
         const { index } = this.state;
         return (
-            <div className="pages-login">
-                <div className="element-box layout-position--center layout-col--4 marg-c">
+            <div className="pages-signin">
+                <div className="element-box layout-position--center layout-col-4 marg-c">
                     <h3 className="text-align-c marg-t-m marg-b-m">JOBSTRM</h3>
                     {(index == 0) ? (
                         <Input 
@@ -43,7 +39,7 @@ export class LoginPage extends Component {
                             placeholder="Password"
                         />
                     )}
-                    <p className="marg-t-xs marg-b-sm">
+                    <p className="marg-t-xs marg-b-m">
                         Forgot <span className="span-highlight">email</span> or <span className="span-highlight">password</span>?
                     </p>
                     <div className="layout-flex layout-flex--between">
@@ -51,7 +47,7 @@ export class LoginPage extends Component {
                             <Button 
                                 text="Create account"
                                 primary={false}
-                                
+                                onPress={() => this.props.history.push("/signup")}
                             />
                         ) : (
                             <Button 
@@ -70,7 +66,7 @@ export class LoginPage extends Component {
                             <Button 
                                 text="Login"
                                 primary={true}
-                                onPress={() => this.onButtonPressed(2)}
+                                onPress={() => this.props.history.push("/")}
                             />
                         )}
                     </div>

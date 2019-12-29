@@ -1,5 +1,10 @@
 .pages {
-    &-login {
+    &-signin {
+        position: relative;
+        height: 100vh;
+    }
+
+    &-signup {
         position: relative;
         height: 100vh;
     }

@@ -27,12 +27,14 @@ const applications = [{
 
 export default () => (
     <div className="pages-home">
-        <div className="layout-col--6 marg-c marg-t-sm">
-            <Input
-                type="text"
-                primary={true} 
-                placeholder="Search"
-            />
+        <div className="layout-col-6 marg-c marg-t-m">
+            <div className="layout-grouping-m">
+                <Input
+                    type="text"
+                    primary={true} 
+                    placeholder="Search"
+                />
+            </div>
             <h3>Applications</h3> 
             <div className="element-box">
                 {applications.map((application, index) => (
