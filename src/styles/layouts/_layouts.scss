@@ -9,6 +9,14 @@
         &--around {
             justify-content: space-around;
         }
+
+        &--between {
+            justify-content: space-between;
+        }
+
+        &--grow {
+            flex: 1;
+        }
     
         &--column {
             flex-direction: column;
@@ -19,7 +27,7 @@
         }
     
         &--bottom {
-            align-items: flex-en
+            align-items: flex-end;
         }
         
         &--center {

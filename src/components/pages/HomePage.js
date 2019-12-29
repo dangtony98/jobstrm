@@ -26,7 +26,7 @@ const applications = [{
 }];
 
 export default () => (
-    <div className="layout-col-4 marg-c">
+    <div className="layout-col-4 marg-c marg-t-sm">
         <Filter />
         <h3>Applications</h3> 
         <div className="application-box">
