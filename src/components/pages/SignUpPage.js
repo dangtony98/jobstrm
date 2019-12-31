@@ -53,7 +53,7 @@ export class SignUpPage extends Component {
                                 type="text"
                                 primary={false}
                                 placeholder="First name"
-                                onTyped={this.onChange}
+                                onChange={this.onChange}
                                 name="first_name"
                             />
                         </div>
@@ -63,7 +63,7 @@ export class SignUpPage extends Component {
                                 type="text"
                                 primary={false}
                                 placeholder="Last name"
-                                onTyped={this.onChange}
+                                onChange={this.onChange}
                                 name="last_name"
                             />
                         </div>                        
@@ -74,7 +74,7 @@ export class SignUpPage extends Component {
                             type="text"
                             primary={false}
                             placeholder="Email address"
-                            onTyped={this.onChange}
+                            onChange={this.onChange}
                             name="email"
                         />
                     </div>
@@ -84,7 +84,7 @@ export class SignUpPage extends Component {
                             type="password"
                             primary={false}
                             placeholder="Password"
-                            onTyped={this.onChange}
+                            onChange={this.onChange}
                             name="password"
                         />
                     </div>
@@ -94,7 +94,7 @@ export class SignUpPage extends Component {
                             type="password"
                             primary={false}
                             placeholder="Re-enter password"
-                            onTyped={this.onChange}
+                            onChange={this.onChange}
                             name="repassword"
                         />
                     </div>
