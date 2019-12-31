@@ -1,0 +1,15 @@
+.textarea {
+    width: 100%;
+    padding: 1.5rem 2rem;
+    background-color: rgba($color-green, $alpha: 0.1);
+    border: 1px solid rgb(189,195,199);
+    border-radius: 0.5rem;
+    font-size: 1.5rem;
+    font-weight: 300;
+    outline: none;
+    transition: border 0.2s;
+
+    &:focus {    
+        border: 1px solid $color-green;
+    }
+}

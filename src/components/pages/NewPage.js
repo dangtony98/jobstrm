@@ -4,11 +4,18 @@ import Input from '../generic/Input';
 import Button from '../generic/Button';
 
 export class NewPage extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+
+        }
+    }
     render() {
         return (
             <div className="pages-new">
                 <div className="layout-col-6 marg-c marg-t-m">
-                    <h3>Add Application</h3> 
+                    <h3>New Application</h3> 
                     <div className="element-box">
                         <div className="layout-flex">
                             <div className="application-image marg-r-sm">
@@ -39,20 +46,20 @@ export class NewPage extends Component {
                                     />
                                 </div>
                                 <div className="layout-grouping-xs">
-                                    <Input 
-                                        type="text"
-                                        primary={false}
+                                    <textarea 
+                                        rows="10" 
                                         placeholder="Job description"
+                                        className="textarea"
                                     />
                                 </div>
                                 <div className="layout-grouping-xs marg-b-sm">
-                                    <Input 
-                                        type="text"
-                                        primary={false}
+                                    <textarea 
+                                        rows="10" 
                                         placeholder="Notes"
+                                        className="textarea"
                                     />
                                 </div>
-                                <hr className="marg-b-sm" />
+                                {/* <hr className="marg-b-sm" />
                                 <h5 className="marg-b-xs">Timeline</h5>
                                 <div className="layout-flex marg-b-m">
                                     <div className="marg-r-xxs layout-flex--grow">
@@ -69,17 +76,17 @@ export class NewPage extends Component {
                                             placeholder="Stage date"
                                         />
                                     </div>                      
-                                </div>
+                                </div> */}
                                 <div className="layout-flex layout-flex--between">
                                     <Button 
                                         text="Discard"
                                         primary={false}
-                                        onPress={() => this.props.history.push("/")}
+                                        onClick={() => this.props.history.push("/")}
                                     />
                                     <Button 
                                         text="Add"
                                         primary={true}
-                                        onPress={() => this.props.history.push("/")}
+                                        onClick={() => this.props.history.push("/")}
                                     />
                                 </div>  
                             </div>

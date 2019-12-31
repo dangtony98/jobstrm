@@ -3,40 +3,67 @@ import { withRouter } from 'react-router';
 import Input from '../generic/Input';
 import Button from '../generic/Button';
 
+import { login } from '../../services/api/authentication';
+
 export class LoginPage extends Component {
     constructor(props) {
         super(props);
 
+        this.onChange = this.onChange.bind(this);
         this.onButton = this.onButtonPressed.bind(this);
+        this.onSubmitPressed = this.onSubmitPressed.bind(this);
 
         this.state = {
-            index: 0
+            index: 0,
+            email: '',
+            password: ''
         }
+    }
+
+    onChange(e) {
+        this.setState({
+            ...this.state,
+            [e.target.name]: e.target.value
+        });
     }
 
     onButtonPressed(index) {
         this.setState({
+            ...this.state,
             index
         });
     }
 
+    onSubmitPressed() {
+        const { email, password } = this.state;
+        login({ email, password }, () => {
+            this.props.history.push('/');
+        });
+    }
+
     render() {
-        const { index } = this.state;
+        const { index, email, password } = this.state;
         return (
             <div className="pages-signin">
                 <div className="element-box layout-position--center layout-col-4 marg-c">
                     <h3 className="text-align-c marg-t-m marg-b-m">JOBSTRM</h3>
                     {(index == 0) ? (
-                        <Input 
+                        <Input
+                            value={email}
                             type="text"
                             primary={false}
                             placeholder="Email"
+                            onChange={this.onChange}
+                            name="email" 
                         />
                     ) : (
                         <Input 
+                            value={password}
                             type="password"
                             primary={false}
                             placeholder="Password"
+                            onChange={this.onChange}
+                            name="password"
                         />
                     )}
                     <p className="marg-t-xs marg-b-m">
@@ -47,26 +74,26 @@ export class LoginPage extends Component {
                             <Button 
                                 text="Create account"
                                 primary={false}
-                                onPress={() => this.props.history.push("/signup")}
+                                onClick={() => this.props.history.push("/signup")}
                             />
                         ) : (
                             <Button 
                                 text="Back"
                                 primary={false}
-                                onPress={() => this.onButtonPressed(0)}
+                                onClick={() => this.onButtonPressed(0)}
                             />
                         )}
                         {(index == 0) ? (
                             <Button 
                             text="Next"
                             primary={true}
-                            onPress={() => this.onButtonPressed(1)}
+                            onClick={() => this.onButtonPressed(1)}
                         />
                         ) : (
                             <Button 
                                 text="Login"
                                 primary={true}
-                                onPress={() => this.props.history.push("/")}
+                                onClick={() => this.onSubmitPressed()}
                             />
                         )}
                     </div>
