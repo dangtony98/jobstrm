@@ -29,7 +29,6 @@ export class SignUpPage extends Component {
 
     onSubmitPressed() {
         register(this.state, () => {
-            console.log('C');
             this.props.history.push('/');
         });
     }

@@ -1,6 +1,9 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 import Input from '../generic/Input';
+import Button from '../generic/Button';
 import Application from '../application/Application';
+
 
 const applications = [{
     id: 1,
@@ -25,17 +28,27 @@ const applications = [{
     notes: 'Submitted resume; cover for this one was twisted a little.'
 }];
 
-export default () => (
+export const HomePage = (props) => (
     <div className="pages-home">
         <div className="layout-col-6 marg-c marg-t-m">
-            <div className="layout-grouping-m">
+            <div className="element-box layout-flex layout-flex--center layout-grouping-s">
                 <Input
                     type="text"
-                    primary={true} 
+                    primary={false} 
                     placeholder="Search"
                 />
+                <div className="element-circle marg-l-sm">
+                    <i className="fas fa-users-cog icon"></i>
+                </div>
             </div>
-            <h3>Applications</h3> 
+            <div className="layout-flex layout-flex--between layout-flex--center layout-grouping-s">
+                <h3>Applications</h3> 
+                <Button 
+                    text="New Application"
+                    primary={true}
+                    onClick={() => props.history.push("/new")}
+                />
+            </div>
             <div className="element-box">
                 {applications.map((application, index) => (
                     <Application 
@@ -49,3 +62,5 @@ export default () => (
         </div>
     </div>
 );
+
+export default withRouter(HomePage);

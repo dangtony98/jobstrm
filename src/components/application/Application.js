@@ -41,11 +41,11 @@ export default class Application extends Component {
                         <div onClick={() => this.invertExpanded()}>
                             {!isExpanded ? (
                                 <i 
-                                    className="fas fa-chevron-down icon-chevron"
+                                    className="fas fa-chevron-down icon"
                                 />
                             ) : (
                                 <i 
-                                    className="fas fa-chevron-up icon-chevron"
+                                    className="fas fa-chevron-up icon"
                                 />
                             )}
                         </div>

@@ -1,5 +1,20 @@
 .element-box {
-    padding: 4rem;
+    padding: 2rem 4rem;
     border-radius: 1rem;
     box-shadow: $box-shadow;
+}
+
+.element-circle {
+    padding: 1.25rem 1.3rem;
+    border-radius: 50%;
+    border: 1px solid $color-grey-dark;
+    cursor: pointer;
+    transition: all 0.2s;
+
+    &:hover {
+        .icon {
+            color: $color-green;
+        }
+        border: 1px solid $color-green;
+    }
 }
