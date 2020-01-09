@@ -7,6 +7,7 @@ import SignInPage from './components/pages/SignInPage';
 import SignUpPage from './components/pages/SignUpPage';
 import HomePage from './components/pages/HomePage';
 import NewPage from './components/pages/NewPage';
+import SettingsPage from './components/pages/SettingsPage';
 
 const Application = () => (
     <Router>
@@ -15,6 +16,7 @@ const Application = () => (
             <Route path="/signin" component={SignInPage} />
             <Route path="/signup" component={SignUpPage} />
             <Route path="/new" component={NewPage} />
+            <Route path="/settings" component={SettingsPage} />
         </Switch>
     </Router>
 );

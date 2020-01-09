@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router';
 import Input from '../generic/Input';
-import Button from '../generic/Button';
 
 export class NewPage extends Component {
     constructor(props) {
@@ -77,17 +76,26 @@ export class NewPage extends Component {
                                         />
                                     </div>                      
                                 </div> */}
+                                <div className="layout-grouping-xs marg-b-sm">
+                                    <button
+                                        className="layout-size--full-width button button--primary"
+                                    >
+                                        + Attach files
+                                    </button>
+                                </div>
                                 <div className="layout-flex layout-flex--between">
-                                    <Button 
-                                        text="Discard"
-                                        primary={false}
+                                    <button
+                                        className="button button--secondary"
                                         onClick={() => this.props.history.push("/")}
-                                    />
-                                    <Button 
-                                        text="Add"
-                                        primary={true}
+                                    >
+                                        Discard
+                                    </button>
+                                    <button
+                                        className="button button--primary"
                                         onClick={() => this.props.history.push("/")}
-                                    />
+                                    >
+                                        Add
+                                    </button>
                                 </div>  
                             </div>
                         </div>

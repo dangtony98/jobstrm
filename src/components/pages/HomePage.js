@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import Input from '../generic/Input';
 import Button from '../generic/Button';
 import Application from '../application/Application';
-
+import { logout } from '../../services/api/authentication';
+import { loadApplications } from '../../services/api/application';
 
 const applications = [{
     id: 1,
@@ -28,39 +29,70 @@ const applications = [{
     notes: 'Submitted resume; cover for this one was twisted a little.'
 }];
 
-export const HomePage = (props) => (
-    <div className="pages-home">
-        <div className="layout-col-6 marg-c marg-t-m">
-            <div className="element-box layout-flex layout-flex--center layout-grouping-s">
-                <Input
-                    type="text"
-                    primary={false} 
-                    placeholder="Search"
-                />
-                <div className="element-circle marg-l-sm">
-                    <i className="fas fa-users-cog icon"></i>
+export class HomePage extends Component {
+    constructor(props) {
+        super(props);
+
+        this.onButtonPressed = this.onButtonPressed.bind(this);
+
+        this.state = {
+
+        }
+    }
+
+    componentDidMount() {
+        console.log('Home Page entered');
+        console.log(JSON.parse(localStorage.getItem('session')).auth_token);
+        loadApplications(() => {
+
+        });
+    }
+
+    onButtonPressed() {
+        logout(() => {
+            this.props.history.push('/signin');
+        });
+    }
+
+    render() {
+        return (
+            <div className="pages-home">
+                <div className="layout-col-6 marg-c marg-t-m">
+                    <div className="element-box layout-flex layout-flex--center layout-grouping-s">
+                        <Input
+                            type="text"
+                            primary={false} 
+                            placeholder="Search"
+                        />
+                        <div 
+                            onClick={() => this.onButtonPressed()}
+                            className="element-circle marg-l-sm"
+                        >
+                            <i className="fas fa-users-cog icon"></i>
+                        </div>
+                    </div>
+                    <div className="layout-flex layout-flex--between layout-flex--center layout-grouping-s">
+                        <h3>Applications</h3> 
+                        <Button 
+                            text="New Application"
+                            primary={true}
+                            onClick={() => this.props.history.push("/new")}
+                        />
+                    </div>
+                    <div className="element-box">
+                        {applications.map((application, index) => (
+                            <Application 
+                                application={application}
+                                applications={applications} 
+                                index={index}
+                                key={application.id}
+                            />
+                        ))}
+                    </div>
                 </div>
             </div>
-            <div className="layout-flex layout-flex--between layout-flex--center layout-grouping-s">
-                <h3>Applications</h3> 
-                <Button 
-                    text="New Application"
-                    primary={true}
-                    onClick={() => props.history.push("/new")}
-                />
-            </div>
-            <div className="element-box">
-                {applications.map((application, index) => (
-                    <Application 
-                        application={application}
-                        applications={applications} 
-                        index={index}
-                        key={application.id}
-                    />
-                ))}
-            </div>
-        </div>
-    </div>
-);
+        );
+    }
+}
 
 export default withRouter(HomePage);

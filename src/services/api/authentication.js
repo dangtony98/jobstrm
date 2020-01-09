@@ -4,7 +4,6 @@ import { JOBSTRM_URL } from '../variables/variables';
 const register = (payload, callback) => {
     axios.post(`${JOBSTRM_URL}/api/user/register`, payload)
         .then((response) => {
-            console.log(response);
             const { auth_token, first_name, last_name, email } = response.data.data;
             localStorage.setItem('session', JSON.stringify({
                 auth_token,
@@ -36,19 +35,19 @@ const login = (payload, callback) => {
         });
 }
 
-const logout = () => {
+const logout = (callback) => {
     axios.post(`${JOBSTRM_URL}/api/user/logout`, {
 
         },
         {
             headers: { 
                 Accept: 'application/json', 
-                Authorization: `Bearer ${localStorage.getItem('token')}` 
+                Authorization: `Bearer ${JSON.parse(localStorage.getItem('session')).auth_token}` 
             }
         })
         .then(() => {
-            // Remove token from local storage
-            // localStorage.removeItem('token');
+            localStorage.removeItem('session');
+            callback();
         })
         .catch((error) => {
             console.log('Error: ' + error);
