@@ -22,6 +22,8 @@ const login = (payload, callback) => {
     axios.post(`${JOBSTRM_URL}/api/user/login`, payload)
         .then((response) => {
             const { auth_token, first_name, last_name, email } = response.data.data;
+            console.log(response);
+            console.log(response.data.data);
             localStorage.setItem('session', JSON.stringify({
                 auth_token,
                 first_name,

@@ -10,8 +10,8 @@ const loadApplications = (callback) => {
             }
         })
         .then((response) => {
-            console.log('load applicatoins response: ');
-            console.log(response);
+            console.log('api/job-applcaion/show-all response: ');
+            console.log(response)
         })
         .catch((error) => {
 
@@ -19,4 +19,22 @@ const loadApplications = (callback) => {
         });
 }
 
-export { loadApplications };
+const createApplication = (payload, callback) => {
+    axios.post(`${JOBSTRM_URL}/api/job-applicaion/create`, payload,
+    {
+        headers: { 
+            Accept: 'application/json', 
+            Authorization: `Bearer ${JSON.parse(localStorage.getItem('session')).auth_token}` 
+        }
+    })
+    .then((response) => {
+        console.log('api/job-applcaion/create response: ');
+        console.log(response);
+        callback();
+    })
+    .catch((error) => {
+        console.log('Error: ' + error);
+    });
+}; 
+
+export { loadApplications, createApplication };

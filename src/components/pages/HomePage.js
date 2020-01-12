@@ -41,8 +41,6 @@ export class HomePage extends Component {
     }
 
     componentDidMount() {
-        console.log('Home Page entered');
-        console.log(JSON.parse(localStorage.getItem('session')).auth_token);
         loadApplications(() => {
 
         });

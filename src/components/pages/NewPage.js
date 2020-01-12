@@ -1,16 +1,43 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router';
 import Input from '../generic/Input';
+import { createApplication } from '../../services/api/application';
 
 export class NewPage extends Component {
     constructor(props) {
         super(props);
 
-        this.state = {
+        this.onChange = this.onChange.bind(this);
+        this.onButtonPressed = this.onButtonPressed.bind(this);
 
+        this.state = {
+            company: '',
+            position: '',
+            location: '',
+            description: ''
         }
     }
+
+    onChange(e) {
+        this.setState({
+            [e.target.name]: e.target.value
+        });
+    }
+
+    onButtonPressed() { 
+        const { company, position, location, description } = this.state;
+        createApplication({
+            company,
+            position,
+            location,
+            description
+        }, () => {
+            this.props.history.push('/');
+        });
+    }
+
     render() {
+        const { company, position, location, description } = this.state;
         return (
             <div className="pages-new">
                 <div className="layout-col-6 marg-c marg-t-m">
@@ -24,24 +51,33 @@ export class NewPage extends Component {
                                 <div className="layout-flex">
                                     <div className="marg-r-xxs layout-flex--grow">
                                         <Input 
+                                            value={company} 
                                             type="text"
                                             primary={false}
                                             placeholder="Company"
+                                            onChange={this.onChange}
+                                            name="company"
                                         />
                                     </div>
                                     <div className="marg-l-xxs layout-flex--grow">
                                         <Input 
+                                            value={position}
                                             type="text"
                                             primary={false}
-                                            placeholder="Position"
+                                            placeholder="Job title"
+                                            onChange={this.onChange}
+                                            name="position"
                                         />
                                     </div>                        
                                 </div>
                                 <div className="layout-grouping-xs">
                                     <Input 
+                                        value={location}
                                         type="text"
                                         primary={false}
                                         placeholder="Location"
+                                        onChange={this.onChange}
+                                        name="location"
                                     />
                                 </div>
                                 <div className="layout-grouping-xs">
@@ -53,9 +89,12 @@ export class NewPage extends Component {
                                 </div>
                                 <div className="layout-grouping-xs marg-b-sm">
                                     <textarea 
+                                        value={description}
                                         rows="10" 
                                         placeholder="Notes"
+                                        onChange={this.onChange}
                                         className="textarea"
+                                        name="description"
                                     />
                                 </div>
                                 {/* <hr className="marg-b-sm" />
@@ -92,7 +131,7 @@ export class NewPage extends Component {
                                     </button>
                                     <button
                                         className="button button--primary"
-                                        onClick={() => this.props.history.push("/")}
+                                        onClick={() => this.onButtonPressed()}
                                     >
                                         Add
                                     </button>
