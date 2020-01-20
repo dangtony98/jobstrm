@@ -32,18 +32,18 @@ const applications = [{
 export class HomePage extends Component {
     constructor(props) {
         super(props);
-
         this.onButtonPressed = this.onButtonPressed.bind(this);
-
         this.state = {
-
+            'applications': []
         }
     }
 
     componentDidMount() {
-        loadApplications(() => {
-
+        loadApplications().then(data => {
+            this.setState({'applications':data.data.data});
+            console.log(this.state)
         });
+
     }
 
     onButtonPressed() {
@@ -78,7 +78,7 @@ export class HomePage extends Component {
                         />
                     </div>
                     <div className="element-box">
-                        {applications.map((application, index) => (
+                        {this.state['applications'].map((application, index) => (
                             <Application 
                                 application={application}
                                 applications={applications} 
